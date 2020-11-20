@@ -10,10 +10,10 @@ import mapIcon from '../utils/mapIcon';
 import api from '../api/service';
 
 interface Orphanage {
-    id: number;
-    latitude: number;
-    longitude: number;
-    name: string;
+    id_property: number;
+    lat: number;
+    lon: number;
+    title: string;
 }
 
 
@@ -23,11 +23,11 @@ function MapImoveis() {
     const [orphanages, setOrphanages] = useState<Orphanage[]>([]);
 
     useEffect(() => {
-        api.get('orphanages').then(response => {
+        api.get('').then(response => {
             setOrphanages(response.data);
         });
     }, []);
-
+    console.log(orphanages)
     return (
         <div id="page-map">
             <aside>
@@ -47,8 +47,8 @@ function MapImoveis() {
             </aside>
 
             <Map
-                center={[-23.5844937, -46.5941802]}
-                zoom={10}
+                center={[-23.7285722,-46.7585595]}
+                zoom={13}
                 style={{ width: '100%', height: '100%' }}
 
             >
@@ -62,13 +62,13 @@ function MapImoveis() {
                 {orphanages.map(orphanage => {
                     return (
                         <Marker
-                            key={orphanage.id}
+                            key={orphanage.id_property}
                             icon={mapIcon}
-                            position={[orphanage.latitude, orphanage.longitude]}
+                            position={[orphanage.lat, orphanage.lon]}
                         >
                             <Popup closeButton={false} minWidth={240} maxWidth={240} className="map-popup">
-                                {orphanage.name}
-                                <Link to={`/orphanages/${orphanage.id}`}>
+                                {orphanage.title}
+                                <Link to={`/${orphanage.id_property}`}>
                                     <FiArrowRight size={32} color="#FFF" />
                                 </Link>
                             </Popup>

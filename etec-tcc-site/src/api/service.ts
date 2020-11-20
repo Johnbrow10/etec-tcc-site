@@ -1,7 +1,12 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'http://localhost:3333',
-})
+    baseURL: 'https://youlikedigital.com.br/iluguel/api/get-propertys.php',
+});
 
-export default api;
+// const response = axios.get('https://youlikedigital.com.br/iluguel/api/get-propertys.php').then(
+//     response =>{
+//         console.log(response.data);
+//     });
+   
+export default  api;

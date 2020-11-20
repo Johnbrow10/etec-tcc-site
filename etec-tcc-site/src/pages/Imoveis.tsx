@@ -36,7 +36,7 @@ export default function Imovel() {
 
     // Essa funcao faz mudança quando o id e mudado na URL atraves do "params.id"
     useEffect(() => {
-        api.get(`imoveis/${params.id}`).then(response => {
+        api.get(`get-propertys.php/${params.id}`).then(response => {
             setImovel(response.data);
         });
     }, [params.id]);
