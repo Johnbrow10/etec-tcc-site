@@ -70,24 +70,24 @@
 }
 
 #page-map .map-popup .leaflet-popup-content-wrapper {
-    background: rgba(255,255,255,0.8);
+    background: rgba(255,255,255,255,0.6);
     border-radius: 20px;
     box-shadow: inset;
-    width: 400px;
+    width: 342px;
 
 
 }
 #page-map .map-popup .leaflet-popup-content-wrapper .img {
-    width: 250px;
-    padding: 20px;
-    display: flexbox;
-    margin-bottom: 20px;
+    width: 100%;
+    object-fit: scale-down;
 
 }
 
 .map-popup .comodos-icons  {
+    margin-top: 10px;
     display: flex;
     justify-content: space-between;
+    margin-top: -20px;
 
 }
 
@@ -97,7 +97,7 @@
 }
 
 
-#page-map  {
+#page-map .map  {
    color: #0089a5;
    font-size: 20px;
    font-weight: bold;
@@ -108,7 +108,7 @@
    align-items: center;
 }
 
-#page-map .map-popup .leaflet-popup-content a{
+#page-map .map-popup .leaflet-popup-content a {
     width: 40px;
     height: 40px;
     background: #15c3d6;

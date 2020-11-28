@@ -12,7 +12,7 @@ function Routes(){
                     <Switch>
                         <Route path="/" exact component={Home}></Route>
                         <Route path="/map" component={MapImoveis}></Route>
-                        <Route path="/get-propertys.php/:id" component={Imoveis}></Route>
+                        <Route path="/imovel/:id" component={Imoveis}></Route>
                     </Switch>
 
                 </BrowserRouter>
