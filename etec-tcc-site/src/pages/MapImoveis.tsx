@@ -66,21 +66,7 @@ export default function MapImoveis() {
     return (
 
         <div id="page-map">
-            <aside>
-                <header>
-                    <img src={mapMarkerImg} alt="Happy" />
-
-                    <h2>Escolha um imovel mapa</h2>
-                    <p>Muitos Imoveis estão esperando a sua visita para alugar</p>
-                </header>
-
-                <footer>
-                    <strong>
-                        São Paulo
-                        </strong>
-                    <span> São Paulo</span>
-                </footer>
-            </aside>
+           
 
             <Map
                 center={[-23.7285722, -46.7585595]}
@@ -110,8 +96,8 @@ export default function MapImoveis() {
 
 
                         <Popup closeButton={false} className="map-popup">
-                            <h1>{property.street}</h1>
-                            <p className="titulo-casa">{property.title}</p>
+                            <h1 className="rua-nome">{property.title}</h1>
+                            <p className="titulo-casa"> {property.street}</p>
                             {
                                 property.monthly_payment <= 200 ? (
                                     <p>Aluguel/Noite <strong> R${property.monthly_payment} </strong></p>

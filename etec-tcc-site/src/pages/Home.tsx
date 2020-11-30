@@ -24,8 +24,10 @@ function Home() {
           </Nav>
           <Nav>
             <Nav.Link href="#deets">Ínicio</Nav.Link>
-            <Nav.Link eventKey={2} href="/map">
+            <Nav.Link eventKey={2}>
+            <Link to="/map">
               Buscar imóveis
+              </Link>
             </Nav.Link>
             <Nav.Link href="#deets">Cadastrar imóvel</Nav.Link>
           </Nav>

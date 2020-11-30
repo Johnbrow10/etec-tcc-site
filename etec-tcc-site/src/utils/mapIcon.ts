@@ -4,8 +4,8 @@ import iconImovel from './iconImovel.png';
 
 const mapIcon = Leaflet.icon({
     iconUrl: iconImovel,
-    iconSize: [60, 60],
-    iconAnchor: [29, 68],
+    iconSize: [30, 30],
+    iconAnchor: [15, 60],
     popupAnchor: [0, -60]
 })
 
