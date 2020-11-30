@@ -1,55 +1,102 @@
-.imovel{
-    width: 100%;
-    height: 100%;
+.imovel {
+    width           : 100%;
+    height          : 100%;
     background-color: #ffffff;
-    padding-left:10px;
-    padding-right: 10px;
+
     padding-top: 20px;
 }
-  
- .imovel-details .img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain ;
-    border-radius: 20px;
-    padding-right: 8px;
-    margin-bottom: 20px;
-    
+
+.grid-imagens {
+    width: 950px;
+
 }
 
-.imovel-details .imgMenor {
-    width: 100px;
-    height: 25%;
-    object-fit: contain;
-    border-radius: 20px;
-    padding-right: 8px;
-    margin-bottom: 20px;
+.col-sm-6 {
+    position     : relative;
+    width        : 130%;
+    padding-right: 3px;
+    padding-left : 3px;
+
+}
+
+.col-sm-3 {
+    position     : relative;
+    width        : 100%;
+    padding-right: 3px;
+    padding-left : 1px;
+
+}
+
+
+.grid-imagens .img {
+    width        : 100%;
+    height       : 80.8%;
+    border-radius: 10px;
+    object-fit   : center;
+    box-shadow   : 0 3px 14px rgba(0, 0, 0, 0.4);
+}
+
+.grid-imagens .imgMenor {
+    display        : flex;
+    justify-content: flex-start;
+    width          : 100%;
+    border-radius  : 10px;
+    margin-bottom  : 3px;
+    height         : 40%;
+    object-fit     : center;
 
 }
 
 .imovel-details h1 {
     font-size: 2rem;
-    color: black;
+    color    : black;
+}
+
+.nome-proprietario {
+    margin-top: -50px;
 }
 
 .imovel-details .endereco {
-    color: rgba(165, 160, 165, 0.671);
-    font-weight: bold;
+    color        : rgba(165, 160, 165, 0.671);
+    font-weight  : bold;
     margin-bottom: 20px;
 }
 
 .comodos-icons .font-icons {
-    color: black;
-    font-size: 1rem;
+    color       : black;
+    font-size   : 1rem;
     margin-right: 20px;
 }
 
-.imovel-details .comodos-icons  {
-    margin-bottom: 20px;
-    display: flex;
+.grid-imagens .comodos-icons {
+    /* margin-bottom  : 10px; */
+    display        : flex;
     justify-content: baseline;
-    white-space: pre;
-   
+    white-space    : pre;
+
 }
 
+.map-container {
+    width        : 100%;
+    height       : 280px;
+    border-radius: 10px;
+    box-shadow   : 0 3px 14px rgba(0, 0, 0, 0.4);
+    background   : #E6F7FB;
+    border       : 1px solid #B3DAE2;
+}
 
+.map-container footer {
+    padding   : 10px 0;
+    text-align: center;
+}
+
+.map-container footer a {
+    line-height    : 24px;
+    color          : #0089A5;
+    text-decoration: none;
+}
+
+.map-container .leaflet-container {
+    border-bottom: 1px solid #DDE3F0;
+    border-radius: 20px;
+}

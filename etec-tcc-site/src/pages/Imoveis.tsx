@@ -87,9 +87,6 @@ export default function Imovel(props: any) {
                 console.log(img)
                 return (
 
-
-
-
                     <Container
                         key={data.id_property}
                         className="imovel-details">
@@ -97,35 +94,109 @@ export default function Imovel(props: any) {
                         <h1 > {data.title}</h1>
                         <p className="endereco" > {data.street}, {data.city}, {data.state}</p>
 
-                        {/* <div className="grid-imagens"> */}
+                        <div className="grid-imagens">
+                            <Row>
+                                <Col sm={6}>
+                                    <img className="img" src={`https://youlikedigital.com.br/iluguel/images/${img[0]}`} />
+                                </Col>
+                                <Col sm={3}>
+
+                                    <img className="imgMenor" src={`https://youlikedigital.com.br/iluguel/images/${img[1]}`} />
+                                    <img className="imgMenor" src={`https://youlikedigital.com.br/iluguel/images/${img[2]}`} />
+                                </Col>
+
+
+                                <Col sm={3}>
+                                    <img className="imgMenor" src={`https://youlikedigital.com.br/iluguel/images/${img[3]}`} />
+                                    <img className="imgMenor" src={`https://youlikedigital.com.br/iluguel/images/${img[4]}`} />
+                                </Col>
+
+                            </Row>
+
+
+                            <h1 className="nome-proprietario"> Imóvel alugado por {data.full_name} </h1>
+                            <div className="comodos-icons">
+                                <p className="font-icons">{data.room} sala</p>
+                                <p className="font-icons">{data.bedroom} quarto</p>
+                                <p className="font-icons">{data.bathroom} banheiro</p>
+                                <p className="font-icons">{data.kitchen} cozinha</p>
+                                {data.garage >= 1 ? (
+                                    <p className="font-icons">{data.garage} garage</p>
+                                ):
+                                ''}
+
+                            </div>
+
+                            <hr />
+                        </div>
                         <Row>
                             <Col sm={6}>
-                                <img className="img" src={`https://youlikedigital.com.br/iluguel/images/${img[0]}`} />
+                                <div className="preco-aluguel">
+                                    <h2>Preços do Aluguel</h2>
+                                    {data.property_contract === true ? (
+                                        <p className="preco-p">A casa precisa de contrato assinado para ser alugada</p>
+                                    ) : (
+                                            <p className="preco-p">A casa não precisa de contrato assinado para ser alugada</p>
+                                        )}
+
+                                </div>
+
+                                <div className="regras-casa">
+                                    <h2>Regras da casa</h2>
+                                    {/* campos que sao booleanos tem duas opções de paragrafos */}
+                                    {data.pets === true ? (
+                                        <p className="regras-p">Pode Animais nesta casa</p>
+                                    ) : (
+                                            <p className="regras-p">Não pode animais nesta casa</p>
+                                        )}
+                                    {data.children === true ? (
+                                        <p className="regras-p">Pode Crianças nessa casa</p>
+                                    ) : (
+                                            <p className="regras-p">Não pode Crianças nesta casa</p>
+                                        )}
+                                    {data.individual === true ? (
+                                        <p className="regras-p">Esta casa e a unica no terreno</p>
+                                    ) : (
+                                            <p className="regras-p">A casa não é a unica no terreno</p>
+                                        )}
+                                    {data.garage === 0 ? (
+                                        <p className="regras-p"> A casa nao tem garage </p>
+                                    ): ''}
+                                </div>
                             </Col>
                             <Col sm={6}>
+                                <div className="map-container">
+                                    <Map
+                                        center={[data.lat, data.lon]}
+                                        zoom={15}
+                                        style={{ width: '100%', height: 290 }}
+                                        dragging={false}
+                                        touchZoom={false}
+                                        zoomControl={false}
+                                        scrollWheelZoom={false}
+                                        doubleClickZoom={true}
+                                    >
+                                        <TileLayer
+                                            // mapa do MapBox litgh-v10
+                                            url={`https://api.mapbox.com/styles/v1/mapbox/outdoors-v11/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`}
+                                        />
+                                        <Marker interactive={false} icon={mapIcon} position={[data.lat, data.lon]} />
+                                    </Map>
 
-                                <img className="imgMenor" src={`https://youlikedigital.com.br/iluguel/images/${img[2]}`} />
-
+                                    <footer> <a target="_blank" rel="noopener noreferrer" href={`https://www.google.com/maps/dir/?api=1&destination=${data.lat},${data.lon}`}> Ver rotas no Google Maps</a> </footer>
+                                </div>
                             </Col>
+
                         </Row>
 
-                        <h1> Casa hospedada por {data.full_name} </h1>
-                        <div className="comodos-icons">
-                            <p className="font-icons">{data.room} sala</p>
-                            <p className="font-icons">{data.bedroom} quarto</p>
-                            <p className="font-icons">{data.bathroom} banheiro</p>
-                            <p className="font-icons">{data.kitchen} cozinha</p>
-                            <p className="font-icons">{data.garage} garage</p>
-                        </div>
 
-                        <hr />
 
                     </Container>
 
 
                 )
 
-             
+
 
 
 
