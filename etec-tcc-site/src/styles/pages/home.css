@@ -1,90 +1,80 @@
-#page-home {
-    /* ocupando 100% da tela */
-    width: 100vw;
-    height: 100vh;
-    background: linear-gradient(329.54deg, #fd9644 0%, #eb3b5a 100%);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} 
-
-#page-home .content-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 1100px;
-
-    height: 100%;
-    max-height: 680px;
-
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    justify-content: space-between;
-
-    background: url('../../images/homepage.png') no-repeat 80% center ;
+.img-header {
+    width: 400px;
 }
 
-#page-home .content-wrapper main {
-    max-width: 350px;
+.img-menu {
+    width: 150px;
 }
 
-#page-home .content-wrapper main h1 {
-    padding-top: 90px;
-    font-size: 76px;
-    line-height: 70px;
-    font-weight: 900;
-}
-
-#page-home .content-wrapper main p {
+.container {
     margin-top: 40px;
-    font-size: 24px;
-    line-height: 34px;
-}
-.content-wrapper img {
-    margin-top: 20px;;
-}
-.content-wrapper .logo {
-    padding: 90px;
-    margin-left: 40px;
-    position: absolute;
 }
 
-.content-wrapper .location {
-    position: absolute;
-    right: 0;
-    top: 0;
-
-    font-size: 24px;
-    line-height: 34px;
-
-    display: flex;
-    flex-direction: column;
-
-    text-align: right;
+.btn-header, .btn-header:hover {
+    background-color: #eb3b5a;
+    border-color: #eb3b5a;
 }
 
-.content-wrapper .location stronger {
-    font-weight: 800;
+.container-cta1 {
+    background-color: #eb3b5a;
+    width: 100%;
+    margin-top: 50px;
+    text-align: center;
+    padding: 60px;
+    color: #fff;
 }
 
-.content-wrapper .enter-app {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-
-    width: 80px;
-    height: 80px;
-    background: #ebdf3b ;
-    border-radius: 30px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    transition: background-color 0.2s;
+.container-cta2 {
+    background-color: #eee;
+    width: 100%;
+    margin-top: 50px;
+    text-align: center;
+    padding: 60px;
+    color: #fff;
 }
 
-.content-wrapper .enter-app:hover {
-    background: #63fd44;
+.footer {
+    background-color: #eb3b5a;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+}
+
+.btn-playstore {
+    width: 200px;
+}
+
+.cta1-title {
+    font-size: 30px;
+}
+
+.cta1-text {
+    font-size: 16px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+.cta2-title {
+    font-size: 30px;
+    color: #eb3b5a;
+}
+
+.cta2-text {
+    font-size: 16px;
+    margin-left: 30px;
+    margin-right: 30px;
+    color: #212529;
+}
+
+.container-grid {
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+
+.col1-img {
+    width: 200px;
+}
+
+.col2-img {
+    width: 200px;
 }
