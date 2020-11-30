@@ -12,11 +12,7 @@ function Routes(){
                     <Switch>
                         <Route path="/" exact component={Home}></Route>
                         <Route path="/map" component={MapImoveis}></Route>
-<<<<<<< HEAD
-                        <Route path="/imovel" component={Imoveis}></Route>
-=======
                         <Route path="/imovel/:id" component={Imoveis}></Route>
->>>>>>> 05a522ad3ba63dde78f4271aa9b546c8f1b28868
                     </Switch>
 
                 </BrowserRouter>
