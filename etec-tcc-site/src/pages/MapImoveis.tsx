@@ -2,6 +2,7 @@ import 'leaflet/dist/leaflet.css';
 import React, { useEffect, useState } from 'react';
 import { GiKnifeFork, GiHomeGarage, GiSofa } from 'react-icons/gi';
 import { FaBed, FaBath } from 'react-icons/fa';
+import { FiArrowRight } from 'react-icons/fi';
 import { Map, TileLayer, Popup, Marker, } from 'react-leaflet';
 import { Link } from 'react-router-dom';
 import mapMarkerImg from '../images/map-marker.svg';
@@ -9,7 +10,7 @@ import '../styles/pages/map-imoveis.css';
 import mapIcon from '../utils/mapIcon';
 
 import api from '../api/service';
-import { maxHeaderSize } from 'http';
+
 
 interface Property {
     id_property: number;
@@ -50,9 +51,11 @@ interface Property {
 
 
 
-function MapImoveis() {
+export default function MapImoveis() {
 
     const [propertys, setPropertys] = useState<Property[]>([]);
+
+
 
     useEffect(() => {
         api.get('').then(response => {
@@ -61,6 +64,7 @@ function MapImoveis() {
     }, []);
     console.log(propertys)
     return (
+
         <div id="page-map">
             <aside>
                 <header>
@@ -88,39 +92,47 @@ function MapImoveis() {
                 {/* <TileLayer url="https://a.tile.openstreetmap.org/{z}/{x}/{y}.png" />     */}
                 <TileLayer
                     // mapa do MapBox litgh-v10
-                    url={`https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`}
+                    url={`https://api.mapbox.com/styles/v1/mapbox/outdoors-v11/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`}
                 />
-                
 
                 {propertys.map(property => {
-                 const images = property.images_property;
-                 const listImages = images.split(',');
-                          
+                    //  const images = property.images_property;
+                    //  const listImages = images.split(',');
+
                     return (
-                        <Marker
-                            key={property.id_property}
-                            icon={mapIcon}
-                            position={[property.lat, property.lon]}
+
+                        <Marker Marker
+                    key = { property.id_property }
+                    icon = { mapIcon }
+                    position = { [property.lat, property.lon]}
+
                         >
-                            
 
-                            <Popup closeButton={true} className="map-popup">
-                                <h1>{property.title}</h1>
 
-                                <img className="img" src={`https://youlikedigital.com.br/iluguel/images/${property.url}`} alt="Imagens do imovel" />
-                                <h1>{property.street}, {property.address_number}</h1>
-                                <div className="comodos-icons">
-                                    <p>  <GiSofa className="icons" ></GiSofa>  {property.room}</p>
-                                    <p>  <FaBed className="icons" ></FaBed>  {property.bedroom}</p>
-                                    <p>  <FaBath className="icons" ></FaBath> {property.bathroom}</p>
-                                    <p> <GiKnifeFork className="icons" > </GiKnifeFork> {property.kitchen}</p>
-                                    <p> <GiHomeGarage className="icons" > </GiHomeGarage> {property.garage}</p>
-                                    <p>{listImages}</p>
-                                </div>
-
-                            </Popup>
+                        <Popup closeButton={false} className="map-popup">
+                            <h1>{property.street}</h1>
+                            <p className="titulo-casa">{property.title}</p>
+                            {
+                                property.monthly_payment <= 200 ? (
+                                    <p>Aluguel/Noite <strong> R${property.monthly_payment} </strong></p>
+                                ) :
+                                    <p>Aluguel/Mensal <strong> R$ {property.monthly_payment} </strong></p>
+                            }
+                            <div className="comodos-icons">
+                                <p>  <GiSofa className="icons" ></GiSofa>  {property.room}</p>
+                                <p>  <FaBed className="icons" ></FaBed>  {property.bedroom}</p>
+                                <p>  <FaBath className="icons" ></FaBath> {property.bathroom}</p>
+                                <p> <GiKnifeFork className="icons" > </GiKnifeFork> {property.kitchen}</p>
+                                <p> <GiHomeGarage className="icons" > </GiHomeGarage> {property.garage}</p>
+                                {/* <p>{listImages}</p> */}
+                            </div>
+                            <Link to={`/imovel/${property.id_property}`} className="enter-app">
+                                <p className="p-enter">Ver detalhes</p>
+                            </Link>
+                        </Popup>
 
                         </Marker>
+
                     )
 
                 })}
@@ -131,9 +143,9 @@ function MapImoveis() {
                 <FiPlus size={32} color="#FFF"> </FiPlus>
             </Link> */}
 
-        </div>
+        </div >
+
     )
 
 }
 
-export default MapImoveis;
