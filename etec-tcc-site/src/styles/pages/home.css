@@ -41,6 +41,10 @@
     padding: 20px;
 }
 
+.botao-buscar-imoveis{
+    text-decoration:none;
+}
+
 .btn-playstore {
     width: 200px;
 }

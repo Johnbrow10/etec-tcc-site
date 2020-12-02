@@ -122,8 +122,8 @@ export default function Imovel(props: any) {
                                 <p className="font-icons">{data.kitchen} cozinha</p>
                                 {data.garage >= 1 ? (
                                     <p className="font-icons">{data.garage} garage</p>
-                                ):
-                                ''}
+                                ) :
+                                    ''}
 
                             </div>
 
@@ -133,6 +133,9 @@ export default function Imovel(props: any) {
                             <Col sm={6}>
                                 <div className="preco-aluguel">
                                     <h2>Preços do Aluguel</h2>
+                                    <p className="preco-p"> O deposito inicial de dois meses <strong> R$ {data.deposit}</strong></p>
+                                    <p className="preco-p"> O Aluguel mensal <strong>R$ {data.monthly_payment}</strong></p>
+                                    
                                     {data.property_contract === true ? (
                                         <p className="preco-p">A casa precisa de contrato assinado para ser alugada</p>
                                     ) : (
@@ -161,7 +164,7 @@ export default function Imovel(props: any) {
                                         )}
                                     {data.garage === 0 ? (
                                         <p className="regras-p"> A casa nao tem garage </p>
-                                    ): ''}
+                                    ) : ''}
                                 </div>
                             </Col>
                             <Col sm={6}>
@@ -169,12 +172,13 @@ export default function Imovel(props: any) {
                                     <Map
                                         center={[data.lat, data.lon]}
                                         zoom={15}
-                                        style={{ width: '100%', height: 290 }}
+                                        style={{ width: '100%', height: '100%' }}
                                         dragging={false}
-                                        touchZoom={false}
+                                        touchZoom={true}
                                         zoomControl={false}
                                         scrollWheelZoom={false}
-                                        doubleClickZoom={true}
+                                        doubleClickZoom={false}
+                                        
                                     >
                                         <TileLayer
                                             // mapa do MapBox litgh-v10

@@ -25,7 +25,7 @@ function Home() {
           <Nav>
             <Nav.Link href="#deets">Ínicio</Nav.Link>
             <Nav.Link eventKey={2}>
-            <Link to="/map">
+            <Link className="botao-buscar-imoveis" to="/map">
               Buscar imóveis
               </Link>
             </Nav.Link>
