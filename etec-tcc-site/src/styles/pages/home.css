@@ -41,8 +41,10 @@
     padding: 20px;
 }
 
-.botao-buscar-imoveis{
+#responsive-navbar-nav .botao{
     text-decoration:none;
+    font-weight: bold;
+    color : #eb3b5a;
 }
 
 .btn-playstore {

@@ -15,21 +15,28 @@ function Home() {
   return (
     <>
       <Navbar collapseOnSelect expand="md" bg="light" variant="light">
-        <Navbar.Brand href="#home">
-          <img alt="" src={logo} className="d-inline-block align-top img-menu" />{' '}
+        <Navbar.Brand>
+          <Link to="/" className="botao" > <img alt="" src={logo} className="d-inline-block align-top img-menu" />{' '}</Link>
+         
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
           </Nav>
           <Nav>
-            <Nav.Link href="#deets">Ínicio</Nav.Link>
+            <Nav.Link>
+            <Link className="botao" to="/">Ínicio</Link>
+            </Nav.Link>
             <Nav.Link eventKey={2}>
-            <Link className="botao-buscar-imoveis" to="/map">
+            <Link className="botao" to="/map">
               Buscar imóveis
               </Link>
             </Nav.Link>
-            <Nav.Link href="#deets">Cadastrar imóvel</Nav.Link>
+            <Nav.Link>
+              <Link className="botao" to="">
+              Cadastrar imóvel
+              </Link>
+              </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
