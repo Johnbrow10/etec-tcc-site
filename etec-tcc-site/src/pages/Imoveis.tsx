@@ -82,15 +82,14 @@ export default function Imovel(props: any) {
                     </Nav>
                     <Nav>
                         <Nav.Link>
-                            <Link to="/">Ínicio</Link>
+                            <Link className="botao" to="/">Ínicio</Link>
                         </Nav.Link>
                         <Nav.Link>
-                            <Link to="/map">Listar no Mapa</Link>
+                            <Link className="botao" to="/map">Listar no Mapa</Link>
                         </Nav.Link>
                         <Nav.Link>
-                            <Link to="/list">Listar em Cards</Link>
+                            <Link className="botao" to="/list">Listar em Cards</Link>
                         </Nav.Link>
-                        <Nav.Link href="#deets">Cadastrar imóvel</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
@@ -100,7 +99,7 @@ export default function Imovel(props: any) {
 
                 {property.map(data => {
                     const img = data['images-property'].split(',');
-                    console.log(img);
+                    console.log(property);
                     return (
 
                         <Container
@@ -163,22 +162,22 @@ export default function Imovel(props: any) {
                                     <div className="regras-casa">
                                         <h2>Regras da casa</h2>
 
-                                        {data.pets === true ? (
+                                        {data.pets == true ? (
                                             <p className="regras-p">Pode Animais nesta casa</p>
                                         ) : (
                                                 <p className="regras-p">Não pode animais nesta casa</p>
                                             )}
-                                        {data.children === true ? (
+                                        {data.children == true ? (
                                             <p className="regras-p">Pode Crianças nessa casa</p>
                                         ) : (
                                                 <p className="regras-p">Não pode Crianças nesta casa</p>
                                             )}
-                                        {data.individual === true ? (
+                                        {data.individual == true ? (
                                             <p className="regras-p">Esta casa e a unica no terreno</p>
                                         ) : (
                                                 <p className="regras-p">A casa não é a unica no terreno</p>
                                             )}
-                                        {data.garage === 0 ? (
+                                        {data.garage == 0 ? (
                                             <p className="regras-p"> A casa nao tem garage </p>
                                         ) : ''}
                                     </div>

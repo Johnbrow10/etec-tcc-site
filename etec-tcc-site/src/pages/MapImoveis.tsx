@@ -92,7 +92,7 @@ export default function MapImoveis() {
             <div id="page-map">
 
                 <Map
-                    center={[-23.7285722, -46.7585595]}
+                    center={[-23.7005414,-46.7929032]}
                     zoom={13}
                     style={{ width: '100%', height: '100%' }}
                 >

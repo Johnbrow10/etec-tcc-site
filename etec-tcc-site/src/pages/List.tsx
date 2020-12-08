@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
-import { GiKnifeFork, GiHomeGarage, GiSofa } from 'react-icons/gi';
+import { GiKnifeFork, GiHomeGarage, GiSofa, GiMoneyStack } from 'react-icons/gi';
+import { SiOpenstreetmap } from 'react-icons/si';
 import { FaBed, FaBath, FaUserTie } from 'react-icons/fa';
 import { Navbar, Nav, FormControl, Form, Button, Container, Card, CardDeck, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -64,8 +65,11 @@ export default function ListImoveis() {
     return (
         <><div>
             <Navbar collapseOnSelect expand="md" bg="light" variant="light">
-                <Navbar.Brand href="#home">
-                    <img alt="" src={logo} className="d-inline-block align-top img-menu" />{' '}
+                <Navbar.Brand>
+                    <Link className="botao" to="/">
+                        <img alt="" src={logo} className="d-inline-block align-top img-menu" />{' '}
+                    </Link>
+
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
@@ -110,8 +114,9 @@ export default function ListImoveis() {
                                             <Card.Body>
                                                 <Card.Title className="card-title">{data.title}</Card.Title>
                                                 <Card.Text>
-                                                    <p><FaUserTie></FaUserTie> {data.full_name}</p>
-
+                                                    <p className="card-text"><FaUserTie></FaUserTie> {data.full_name}</p>
+                                                    <p className="card-text"> <SiOpenstreetmap></SiOpenstreetmap> {data.neighborhood} </p>
+                                                    <p className="card-text"> <GiMoneyStack></GiMoneyStack> <strong>{data.monthly_payment} R$/mensal </strong>  </p>
                                                 </Card.Text>
                                                 <Link to={`/imovel/${data.id_property}`} className="enter-app">
                                                     <p className="p-enter">Ver detalhes</p>

@@ -1,5 +1,5 @@
 .page-cards {
-    margin-top: -35px;
+    margin-top: -25px;
 }
 
 .card-deck .card {
@@ -8,7 +8,7 @@
     margin-bottom: 20px;
     margin-left  : 10px;
     width        : 240px;
-    height       : 350px;
+    height       : 400px;
     box-shadow   : rgba(0, 0, 0, 0.20) 0px 8px 28px !important;
     border       : 20px;
 }
@@ -21,6 +21,13 @@
 
 .card .card-title {
     font-size    : 21px;
+    white-space  : nowrap;
+    overflow     : hidden;
+    text-overflow: ellipsis;
+}
+
+.card .card-text {
+    font-size    : 15px;
     white-space  : nowrap;
     overflow     : hidden;
     text-overflow: ellipsis;
@@ -40,7 +47,7 @@
 
 .card .p-enter {
     color      : #ffff;
-    font-size  : 20px;
+    font-size  : 15px;
     font-weight: bold;
     margin-top : 10px;
 }
