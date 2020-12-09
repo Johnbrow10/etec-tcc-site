@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { GiKnifeFork, GiHomeGarage, GiSofa, GiMoneyStack } from 'react-icons/gi';
 import { SiOpenstreetmap } from 'react-icons/si';
 import { FaBed, FaBath, FaUserTie } from 'react-icons/fa';
-import { Navbar, Nav, FormControl, Form, Button, Container, Card, CardDeck, Row, Col } from 'react-bootstrap';
+import { Navbar, Nav, FormControl, Form, Button, Container, Card, CardDeck, Row, Col, Carousel } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import logo from '../images/logo.png';
 import '../styles/pages/list.css';
@@ -110,7 +110,47 @@ export default function ListImoveis() {
                                 <Col md={3}>
                                     <CardDeck>
                                         <Card className="card">
-                                            <Card.Img variant="top" src={`https://youlikedigital.com.br/iluguel/images/${img[0]}`} />
+
+                                            <Carousel key={data.id_property}>
+                                                <Carousel.Item interval={8000}>
+                                                    <img
+                                                        className="d-block w-100"
+                                                        src={`https://youlikedigital.com.br/iluguel/images/${img[0]}`}
+                                                        alt="First slide"
+                                                    />
+                                                </Carousel.Item>
+                                                <Carousel.Item interval={8000}>
+                                                    <img
+                                                        className="d-block w-100"
+                                                        src={`https://youlikedigital.com.br/iluguel/images/${img[1]}`}
+                                                        alt="Third slide"
+                                                    />
+
+
+                                                </Carousel.Item>
+                                                <Carousel.Item interval={8000}>
+                                                    <img
+                                                        className="d-block w-100"
+                                                        src={`https://youlikedigital.com.br/iluguel/images/${img[2]}`}
+                                                        alt="Third slide"
+                                                    />
+                                                </Carousel.Item>
+                                                <Carousel.Item interval={8000}>
+                                                    <img
+                                                        className="d-block w-100"
+                                                        src={`https://youlikedigital.com.br/iluguel/images/${img[3]}`}
+                                                        alt="Third slide"
+                                                    />
+                                                </Carousel.Item>
+                                                <Carousel.Item interval={8000}>
+                                                    <img
+                                                        className="d-block w-100"
+                                                        src={`https://youlikedigital.com.br/iluguel/images/${img[4]}`}
+                                                        alt="Third slide"
+                                                    />
+                                                </Carousel.Item>
+                                            </Carousel>
+
                                             <Card.Body>
                                                 <Card.Title className="card-title">{data.title}</Card.Title>
                                                 <Card.Text>
