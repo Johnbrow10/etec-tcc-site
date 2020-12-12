@@ -4,10 +4,10 @@
     background-color: #ffffff;
 }
 
-#responsive-navbar-nav .botao{
-    text-decoration:none;
-    font-weight: bold;
-    color : #eb3b5a;
+#responsive-navbar-nav .botao {
+    text-decoration: none;
+    font-weight    : bold;
+    color          : #eb3b5a;
 }
 
 .grid-imagens {
@@ -48,7 +48,7 @@
     margin-bottom  : 3px;
     height         : 40%;
     object-fit     : cover;
-    box-shadow   : 0 3px 14px rgba(0, 0, 0, 0.4);
+    box-shadow     : 0 3px 14px rgba(0, 0, 0, 0.4);
 
 }
 
@@ -59,7 +59,7 @@
 
 .nome-proprietario {
     margin-top: -50px;
-}   
+}
 
 .imovel-details .endereco {
     color        : rgba(165, 160, 165, 0.671);
@@ -69,7 +69,7 @@
 
 .comodos-icons .font-icons {
     color       : black;
-    font-size   : 1rem;
+    font-size   : 1.4rem;
     margin-right: 20px;
 }
 
@@ -97,13 +97,14 @@
     padding      : 20px;
     background   : #ffffff;
     margin-top   : 20px;
+    margin-bottom: 20px;
 }
 
 
 
 .map-container {
-    width        : 90%;
-    height       : 400px;
+    width        : 100%;
+    height       : 444px;
     border-radius: 10px;
     box-shadow   : 0 3px 14px rgba(0, 0, 0, 0.4);
     background   : #E6F7FB;
@@ -113,12 +114,19 @@
 .map-container footer {
     padding   : 10px 0;
     text-align: center;
+    border-radius  : 15px;
+    box-shadow     : rgba(0, 0, 0, 0.15) 0px 8px 28px !important;
+    padding        : 20px;
+    background     : #ffffff;
+    margin-top     : 5px;
+    width          : 100%;
 }
 
 .map-container footer a {
     line-height    : 24px;
     color          : #0089A5;
     text-decoration: none;
+   
 }
 
 .map-container .leaflet-container {

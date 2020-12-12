@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { FiClock, FiInfo } from 'react-icons/fi';
 import { Map, Marker, TileLayer } from 'react-leaflet';
-import { GiKnifeFork, GiHomeGarage, GiSofa } from 'react-icons/gi';
-import { FaBed, FaBath } from 'react-icons/fa';
+import { GiHomeGarage, GiBed, GiKnifeFork } from 'react-icons/gi';
+import { FaCouch, FaToilet } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { Container, Row, Col, Navbar, Nav } from 'react-bootstrap';
 
@@ -125,18 +125,19 @@ export default function Imovel(props: any) {
                                         <img className="imgMenor" src={`https://youlikedigital.com.br/iluguel/images/${img[3]}`} />
                                         <img className="imgMenor" src={`https://youlikedigital.com.br/iluguel/images/${img[4]}`} />
                                     </Col>
-
                                 </Row>
 
 
                                 <h1 className="nome-proprietario"> Imóvel alugado por {data.full_name} </h1>
                                 <div className="comodos-icons">
-                                    <p className="font-icons">{data.room} sala</p>
-                                    <p className="font-icons">{data.bedroom} quarto</p>
-                                    <p className="font-icons">{data.bathroom} banheiro</p>
-                                    <p className="font-icons">{data.kitchen} cozinha</p>
+
+                                    <p className="font-icons"> <FaCouch/> {data.room} </p>
+                                    <p className="font-icons"> <GiBed/>  {data.bedroom} </p>
+                                    <p className="font-icons"> <FaToilet/> {data.bathroom}</p>
+                                    <p className="font-icons"> <GiKnifeFork/> {data.kitchen} </p>
+
                                     {data.garage >= 1 ? (
-                                        <p className="font-icons">{data.garage} garage</p>
+                                        <p className="font-icons"> <GiHomeGarage></GiHomeGarage> {data.garage} </p>
                                     ) :
                                         ''}
 
@@ -147,11 +148,22 @@ export default function Imovel(props: any) {
                             <Row>
                                 <Col sm={6}>
                                     <div className="preco-aluguel">
-                                        <h2>Preços do Aluguel</h2>
+                                        <h2>Detalhes do Aluguel</h2>
                                         <p className="preco-p"> O deposito inicial de dois meses <strong> R$ {data.deposit}</strong></p>
                                         <p className="preco-p"> O Aluguel mensal <strong>R$ {data.monthly_payment}</strong></p>
 
-                                        {data.property_contract === true ? (
+                                        {data.energy == true ? (
+                                            <p className="preco-p">A energia estar inclusa no aluguel</p>
+                                        ) : (
+                                                <p className="preco-p">A energia não estar inclusa no aluguel</p>
+                                            )}
+                                        {data.water == true ? (
+                                            <p className="preco-p">A água estar inclusa no aluguel</p>
+                                        ) : (
+                                                <p className="preco-p">A água não estar inclusa no aluguel</p>
+                                            )}
+
+                                        {data.property_contract == true ? (
                                             <p className="preco-p">A casa precisa de contrato assinado para ser alugada</p>
                                         ) : (
                                                 <p className="preco-p">A casa não precisa de contrato assinado para ser alugada</p>
@@ -160,7 +172,7 @@ export default function Imovel(props: any) {
                                     </div>
 
                                     <div className="regras-casa">
-                                        <h2>Regras da casa</h2>
+                                        <h2>Detalhes da casa</h2>
 
                                         {data.pets == true ? (
                                             <p className="regras-p">Pode Animais nesta casa</p>
@@ -168,7 +180,7 @@ export default function Imovel(props: any) {
                                                 <p className="regras-p">Não pode animais nesta casa</p>
                                             )}
                                         {data.children == true ? (
-                                            <p className="regras-p">Pode Crianças nessa casa</p>
+                                            <p className="regras-p">Pode Crianças nesta casa</p>
                                         ) : (
                                                 <p className="regras-p">Não pode Crianças nesta casa</p>
                                             )}
@@ -180,6 +192,7 @@ export default function Imovel(props: any) {
                                         {data.garage == 0 ? (
                                             <p className="regras-p"> A casa nao tem garage </p>
                                         ) : ''}
+
                                     </div>
                                 </Col>
                                 <Col sm={6}>
@@ -193,7 +206,6 @@ export default function Imovel(props: any) {
                                             zoomControl={false}
                                             scrollWheelZoom={false}
                                             doubleClickZoom={false}
-
                                         >
                                             <TileLayer
                                                 // mapa do MapBox litgh-v10
@@ -207,22 +219,12 @@ export default function Imovel(props: any) {
 
                             </Row>
 
-
-
                         </Container>
-
 
                     );
 
-
-
-
-
-
-
-
-
                 })}
+
             </div></>
     );
 

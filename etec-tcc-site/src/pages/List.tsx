@@ -1,9 +1,11 @@
 
 import React, { useEffect, useState } from 'react';
 import { GiKnifeFork, GiHomeGarage, GiSofa, GiMoneyStack } from 'react-icons/gi';
+// import { GrMapLocation } from 'react-icons/gr';
 import { SiOpenstreetmap } from 'react-icons/si';
-import { FaBed, FaBath, FaUserTie } from 'react-icons/fa';
-import { Navbar, Nav, FormControl, Form, Button, Container, Card, CardDeck, Row, Col, Carousel } from 'react-bootstrap';
+import { FaBed, FaBath, FaUserTie, FaMapMarkedAlt } from 'react-icons/fa';
+import { Navbar, Nav, FormControl, Form, Button, Container
+, Card, CardDeck, Row, Col, Carousel, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import logo from '../images/logo.png';
 import '../styles/pages/list.css';
@@ -82,11 +84,6 @@ export default function ListImoveis() {
                     <Nav>
                         <Nav.Link>
                             <Link className="botao" to="/">Inicio</Link>
-                        </Nav.Link>
-                        <Nav.Link eventKey={2}>
-                            <Link className="botao" to="/map">
-                                Buscar no Mapa
-                             </Link>
                         </Nav.Link>
                         <Nav.Link>
                             <Link className="botao" to="/">
@@ -170,6 +167,22 @@ export default function ListImoveis() {
                     </Row>
 
                 </Container>
+
+                <OverlayTrigger
+                    key="top"
+                    placement="top"
+                    overlay={
+                        <Tooltip id="top">
+                            Listar em Mapa
+                             </Tooltip>
+                    }
+                >
+                    <Link to="/map" className="list-all">
+                        <FaMapMarkedAlt className="icon"></FaMapMarkedAlt>
+
+                    </Link>
+
+                </OverlayTrigger>
 
 
             </div>

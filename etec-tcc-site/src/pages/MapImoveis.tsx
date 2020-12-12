@@ -1,8 +1,8 @@
 import 'leaflet/dist/leaflet.css';
 import React, { useEffect, useState } from 'react';
 import { GiKnifeFork, GiHomeGarage, GiSofa } from 'react-icons/gi';
-import { FaBed, FaBath } from 'react-icons/fa';
-import { Navbar, Nav, FormControl, Form, Button } from 'react-bootstrap';
+import { FaBed, FaBath, FaList } from 'react-icons/fa';
+import { Navbar, Nav, FormControl, Form, Button, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { Map, TileLayer, Popup, Marker, } from 'react-leaflet';
 import { Link } from 'react-router-dom';
 import logo from '../images/logo.png';
@@ -92,7 +92,7 @@ export default function MapImoveis() {
             <div id="page-map">
 
                 <Map
-                    center={[-23.7005414,-46.7929032]}
+                    center={[-23.7005414, -46.7929032]}
                     zoom={13}
                     style={{ width: '100%', height: '100%' }}
                 >
@@ -142,10 +142,21 @@ export default function MapImoveis() {
                     })}
 
                 </Map>
+                <OverlayTrigger
+                    key="top"
+                    placement="top"
+                    overlay={
+                        <Tooltip id="top">
+                            Listar em cards
+                             </Tooltip>
+                    }
+                >
+                    <Link to="/list" className="list-all">
+                        <FaList className="icons"></FaList>
+                    </Link>
 
-                <Link to="/list" className="list-all">
-                    <p> Listar Todos </p>
-                </Link>
+                </OverlayTrigger>
+
 
             </div></>
 
