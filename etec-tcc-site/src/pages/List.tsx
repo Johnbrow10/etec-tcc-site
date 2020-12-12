@@ -4,8 +4,10 @@ import { GiKnifeFork, GiHomeGarage, GiSofa, GiMoneyStack } from 'react-icons/gi'
 // import { GrMapLocation } from 'react-icons/gr';
 import { SiOpenstreetmap } from 'react-icons/si';
 import { FaBed, FaBath, FaUserTie, FaMapMarkedAlt } from 'react-icons/fa';
-import { Navbar, Nav, FormControl, Form, Button, Container
-, Card, CardDeck, Row, Col, Carousel, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import {
+    Navbar, Nav, FormControl, Form, Button, Container
+    , Card, CardDeck, Row, Col, Carousel, OverlayTrigger, Tooltip
+} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import logo from '../images/logo.png';
 import '../styles/pages/list.css';
@@ -53,16 +55,51 @@ interface Property {
 export default function ListImoveis() {
 
     const [propertys, setPropertys] = useState<Property[]>([]);
-
-
+    const [propertysFilter, setPropertysFilter] = useState<Property[]>([])
+    const [pricesFilter, setPricesFilter] = useState({ de: '', ate: '' });
+    const [search, setSearch] = useState('');
 
     useEffect(() => {
         api.get('').then(response => {
             setPropertys(response.data);
+            setPropertysFilter(response.data);
         });
     }, []);
 
     const property = propertys.filter(data => data.id_property);
+
+    
+    const find = (event: any) => {
+        const termo = event.target.value;
+
+        setSearch(termo)
+
+        const result = propertys.filter((property) => {
+            const dataConcat = property.title.concat(property.neighborhood).toLowerCase().trim();
+            return dataConcat.includes(termo.toLowerCase());
+        });
+        setPropertysFilter(result);
+
+    }
+
+    const priceFilter = (de: any, ate: any) => {
+        setPricesFilter({
+            de: de,
+            ate: ate,
+        })
+
+        const filterData = propertys
+            .filter(property => !de ? true : Number(property.monthly_payment) >= de)
+            .filter(property => !ate ? true : Number(property.monthly_payment) <= ate)
+
+        setPropertysFilter(filterData);
+    }
+
+    const cleanFilter = () => {
+        setSearch('')
+        setPricesFilter({ de: '', ate: '' })
+        setPropertysFilter(propertys)
+    }
 
     return (
         <><div>
@@ -76,19 +113,13 @@ export default function ListImoveis() {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto">
-                        <Form inline>
-                            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                            <Button variant="outline-light">Search</Button>
-                        </Form>
                     </Nav>
                     <Nav>
                         <Nav.Link>
                             <Link className="botao" to="/">Inicio</Link>
                         </Nav.Link>
-                        <Nav.Link>
-                            <Link className="botao" to="/">
-                                Cadastrar imóvel
-                            </Link>
+                        <Nav.Link className="botao"  href="https://api.whatsapp.com/send?phone=5511972014007&text=Ol%C3%A1%2C%20gostaria%20de%20cadastrar%20meu%20im%C3%B3vel%20no%20i-luguel.">
+                          Cadastrar imóvel
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
@@ -97,10 +128,19 @@ export default function ListImoveis() {
 
             <div className="page-cards">
 
+                <div className="container-filter-list">
+                    <Form inline>
+                        <FormControl onChange={find} value={search} type="text" placeholder="Busque por bairro..." className="mr-sm-2" />
+                        <FormControl onChange={(event) => priceFilter(event.target.value, pricesFilter.ate)} value={pricesFilter.de} type="number" placeholder="De" className="mr-sm-2" />
+                        <FormControl onChange={(event) => priceFilter(pricesFilter.de, event.target.value)} value={pricesFilter.ate} type="number" placeholder="Até" className="mr-sm-2" />
+
+                        <Button variant="clean" onClick={cleanFilter}>Limpar</Button>
+                    </Form>
+                </div>
 
                 <Container>
                     <Row>
-                        {property.map(data => {
+                        {propertysFilter.map(data => {
                             const img = data['images-property'].split(',');
                             console.log(img[0]);
                             return (

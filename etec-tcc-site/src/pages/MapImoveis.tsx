@@ -10,6 +10,7 @@ import '../styles/pages/map-imoveis.css';
 import mapIcon from '../utils/mapIcon';
 
 import api from '../api/service';
+import { title } from 'process';
 
 
 interface Property {
@@ -54,14 +55,50 @@ interface Property {
 export default function MapImoveis() {
 
     const [propertys, setPropertys] = useState<Property[]>([]);
-
+    const [propertysFilter, setPropertysFilter] = useState<Property[]>([])
+    const [pricesFilter, setPricesFilter] = useState({ de: '', ate: '' });
+    const [search, setSearch] = useState('');
 
 
     useEffect(() => {
         api.get('').then(response => {
             setPropertys(response.data);
+            setPropertysFilter(response.data);
         });
     }, []);
+
+    const find = (event: any) => {
+        const termo = event.target.value;
+
+        setSearch(termo)
+
+        const result = propertys.filter((property) => {
+            const dataConcat = property.title.concat(property.neighborhood).toLowerCase().trim();
+            return dataConcat.includes(termo.toLowerCase());
+        });
+        setPropertysFilter(result);
+
+    }
+
+    const priceFilter = (de: any, ate: any) => {
+        setPricesFilter({
+            de: de,
+            ate: ate,
+        })
+
+        const filterData = propertys
+            .filter(property => !de ? true : Number(property.monthly_payment) >= de)
+            .filter(property => !ate ? true : Number(property.monthly_payment) <= ate)
+
+        setPropertysFilter(filterData);
+    }
+
+    const cleanFilter = () => {
+        setSearch('')
+        setPricesFilter({ de: '', ate: '' })
+        setPropertysFilter(propertys)
+    }
+
     return (
         <><div>
             <Navbar collapseOnSelect expand="md" bg="light" variant="light">
@@ -70,12 +107,7 @@ export default function MapImoveis() {
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
-                    <Nav className="mr-auto">
-                        <Form inline>
-                            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                            <Button variant="outline-light">Search</Button>
-                        </Form>
-                    </Nav>
+                    <Nav className="mr-auto"></Nav>
                     <Nav>
                         <Nav.Link>
                             <Link className="botao" to="/">Inicio</Link>
@@ -89,6 +121,17 @@ export default function MapImoveis() {
                 </Navbar.Collapse>
             </Navbar>
         </div>
+
+            <div className="container-filter">
+                <Form inline>
+                    <FormControl onChange={find} value={search} type="text" placeholder="Busque por bairro..." className="mr-sm-2" />
+                    <FormControl onChange={(event) => priceFilter(event.target.value, pricesFilter.ate)} value={pricesFilter.de} type="number" placeholder="De" className="mr-sm-2" />
+                    <FormControl onChange={(event) => priceFilter(pricesFilter.de, event.target.value)} value={pricesFilter.ate} type="number" placeholder="Até" className="mr-sm-2" />
+
+                    <Button variant="clean" onClick={cleanFilter}>Limpar</Button>
+                </Form>
+            </div>
+
             <div id="page-map">
 
                 <Map
@@ -103,7 +146,7 @@ export default function MapImoveis() {
                         // mapa do MapBox litgh-v10
                         url={`https://api.mapbox.com/styles/v1/mapbox/outdoors-v11/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`} />
 
-                    {propertys.map(property => {
+                    {propertysFilter.map(property => {
 
                         return (
 
@@ -117,7 +160,7 @@ export default function MapImoveis() {
 
                                 <Popup closeButton={false} className="map-popup">
                                     <h1 className="rua-nome">{property.title}</h1>
-                                    <p className="titulo-casa"> {property.street}</p>
+                                    <p className="titulo-casa"> {property.neighborhood}, {property.city}</p>
                                     {property.monthly_payment <= 200 ? (
                                         <p>Aluguel/Noite <strong> R${property.monthly_payment} </strong></p>
                                     ) :

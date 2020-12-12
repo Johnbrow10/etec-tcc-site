@@ -8,8 +8,30 @@
 }
 
 .form-inline {
-    left: 20px;
+    align-items: center;
+    margin: auto;
 
+}
+
+.btn-clean, .btn-clean:hover {
+    background-color: #eb3b5a;
+    color: #fff;
+}
+
+.container-filter {
+    width: 60%;
+    height: 50px;
+    background-color: #fff;
+    position: absolute;
+    z-index: 1000;
+    border-radius: 40px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 8px 28px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0px;
+    right: 0px;
+    display: flex;
 }
 
 
