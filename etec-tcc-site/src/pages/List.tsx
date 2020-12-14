@@ -1,12 +1,10 @@
 
 import React, { useEffect, useState } from 'react';
 import { GiKnifeFork, GiHomeGarage, GiSofa, GiMoneyStack } from 'react-icons/gi';
-// import { GrMapLocation } from 'react-icons/gr';
 import { SiOpenstreetmap } from 'react-icons/si';
 import { FaBed, FaBath, FaUserTie, FaMapMarkedAlt } from 'react-icons/fa';
 import {
-    Navbar, Nav, FormControl, Form, Button, Container
-    , Card, CardDeck, Row, Col, Carousel, OverlayTrigger, Tooltip
+    Navbar, Nav, FormControl, Form, Button, Container, Card, CardDeck, Row, Col, Carousel, OverlayTrigger, Tooltip
 } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import logo from '../images/logo.png';
@@ -48,7 +46,7 @@ interface Property {
     neighborhood: string;
     city: string;
     state: string;
-    'images-property': string;
+    'images_property': string;
 
 }
 
@@ -68,7 +66,7 @@ export default function ListImoveis() {
 
     const property = propertys.filter(data => data.id_property);
 
-    
+
     const find = (event: any) => {
         const termo = event.target.value;
 
@@ -118,8 +116,8 @@ export default function ListImoveis() {
                         <Nav.Link>
                             <Link className="botao" to="/">Inicio</Link>
                         </Nav.Link>
-                        <Nav.Link className="botao"  href="https://api.whatsapp.com/send?phone=5511972014007&text=Ol%C3%A1%2C%20gostaria%20de%20cadastrar%20meu%20im%C3%B3vel%20no%20i-luguel.">
-                          Cadastrar imóvel
+                        <Nav.Link className="botao" href="https://api.whatsapp.com/send?phone=5511972014007&text=Ol%C3%A1%2C%20gostaria%20de%20cadastrar%20meu%20im%C3%B3vel%20no%20i-luguel.">
+                            Cadastrar imóvel
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
@@ -141,7 +139,7 @@ export default function ListImoveis() {
                 <Container>
                     <Row>
                         {propertysFilter.map(data => {
-                            const img = data['images-property'].split(',');
+                            const img = data['images_property'].split(',');
                             console.log(img[0]);
                             return (
                                 <Col md={3}>

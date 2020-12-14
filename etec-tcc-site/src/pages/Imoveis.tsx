@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { FiClock, FiInfo } from 'react-icons/fi';
 import { Map, Marker, TileLayer } from 'react-leaflet';
 import { GiHomeGarage, GiBed, GiKnifeFork } from 'react-icons/gi';
 import { FaCouch, FaToilet } from 'react-icons/fa';
@@ -45,7 +44,7 @@ interface Property {
     neighborhood: string;
     city: string;
     state: string;
-    'images-property': string;
+    'images_property': string;
     id_image: any;
 
 }
@@ -87,8 +86,8 @@ export default function Imovel(props: any) {
                         <Nav.Link>
                             <Link className="botao" to="/map">Listar no Mapa</Link>
                         </Nav.Link>
-                        <Nav.Link>
-                            <Link className="botao" to="/list">Listar em Cards</Link>
+                        <Nav.Link className="botao"  href="https://api.whatsapp.com/send?phone=5511972014007&text=Ol%C3%A1%2C%20gostaria%20de%20cadastrar%20meu%20im%C3%B3vel%20no%20i-luguel.">
+                          Cadastrar imóvel
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
@@ -98,7 +97,7 @@ export default function Imovel(props: any) {
             <div className="imovel">
 
                 {property.map(data => {
-                    const img = data['images-property'].split(',');
+                    const img = data['images_property'].split(',');
                     console.log(property);
                     return (
 

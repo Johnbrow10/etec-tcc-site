@@ -17,7 +17,7 @@ function Home() {
       <Navbar collapseOnSelect expand="md" bg="light" variant="light">
         <Navbar.Brand>
           <Link to="/" className="botao" > <img alt="" src={logo} className="d-inline-block align-top img-menu" />{' '}</Link>
-         
+
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -25,18 +25,16 @@ function Home() {
           </Nav>
           <Nav>
             <Nav.Link>
-            <Link className="botao" to="/">Ínicio</Link>
+              <Link className="botao" to="/">Ínicio</Link>
             </Nav.Link>
             <Nav.Link eventKey={2}>
-            <Link className="botao" to="/map">
-              Buscar imóveis
+              <Link className="botao" to="/map">
+                Buscar imóveis
               </Link>
             </Nav.Link>
-            <Nav.Link>
-              <Link className="botao" to="">
+            <Nav.Link className="botao" href="https://api.whatsapp.com/send?phone=5511972014007&text=Ol%C3%A1%2C%20gostaria%20de%20cadastrar%20meu%20im%C3%B3vel%20no%20i-luguel.">
               Cadastrar imóvel
-              </Link>
-              </Nav.Link>
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
@@ -118,9 +116,6 @@ function Home() {
       </div>
 
     </>
-    // <Link to="/map" className="enter-app">
-    //   <FiArrowRight size="26" color="(0. 0. 0. 0. 6)"/>
-    // </Link>
   );
 }
 
