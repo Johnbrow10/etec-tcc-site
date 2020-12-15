@@ -1,8 +1,8 @@
 
 import React, { useEffect, useState } from 'react';
-import { GiKnifeFork, GiHomeGarage, GiSofa, GiMoneyStack } from 'react-icons/gi';
+import {  GiMoneyStack } from 'react-icons/gi';
 import { SiOpenstreetmap } from 'react-icons/si';
-import { FaBed, FaBath, FaUserTie, FaMapMarkedAlt } from 'react-icons/fa';
+import {  FaUserTie, FaMapMarkedAlt } from 'react-icons/fa';
 import {
     Navbar, Nav, FormControl, Form, Button, Container, Card, CardDeck, Row, Col, Carousel, OverlayTrigger, Tooltip
 } from 'react-bootstrap';

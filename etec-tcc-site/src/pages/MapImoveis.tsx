@@ -10,7 +10,7 @@ import '../styles/pages/map-imoveis.css';
 import mapIcon from '../utils/mapIcon';
 
 import api from '../api/service';
-import { title } from 'process';
+
 
 
 interface Property {

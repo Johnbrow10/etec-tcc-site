@@ -86,6 +86,9 @@ export default function Imovel(props: any) {
                         <Nav.Link>
                             <Link className="botao" to="/map">Listar no Mapa</Link>
                         </Nav.Link>
+                        <Nav.Link>
+                            <Link className="botao" to="/list">Listar em Cards</Link>
+                        </Nav.Link>
                         <Nav.Link className="botao"  href="https://api.whatsapp.com/send?phone=5511972014007&text=Ol%C3%A1%2C%20gostaria%20de%20cadastrar%20meu%20im%C3%B3vel%20no%20i-luguel.">
                           Cadastrar imóvel
                         </Nav.Link>

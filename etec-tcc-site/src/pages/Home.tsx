@@ -1,5 +1,4 @@
 import React from 'react';
-import { FiArrowRight } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import { Button, Navbar, Container, Col, Row, Nav, Media } from 'react-bootstrap';
 
@@ -46,8 +45,8 @@ function Home() {
           <Col sm={7}>
             <h1>Iluguel</h1>
             <p>
-            O i-luguel usa tecnologia para tornar a experiência de alugar um imóvel mais simples e agradável,
-tanto para quem procura um lar quanto para quem anuncia com a gente.
+              O i-luguel usa tecnologia para tornar a experiência de alugar um imóvel mais simples e agradável,
+              tanto para quem procura um lar quanto para quem anuncia com a gente.
           </p>
             <p>
               <Button className="btn-header">Explorar</Button>
@@ -75,7 +74,7 @@ tanto para quem procura um lar quanto para quem anuncia com a gente.
               <Media.Body>
                 <h5>Cadastre seu imóvel</h5>
                 <p>
-                  Está com dificuldade de alugar seu imóvel? cadastre=se no i-luguel! com um atendimento bem humanizado e sem formulários, você consegue ficar visível no buscador, tudo isso sem pagar nada.
+                  Está com dificuldade de alugar seu imóvel? cadastra-se no i-luguel! com um atendimento bem humanizado e sem formulários, você consegue ficar visível no buscador, tudo isso sem pagar nada.
       </p>
 
               </Media.Body>
@@ -91,7 +90,7 @@ tanto para quem procura um lar quanto para quem anuncia com a gente.
               <Media.Body>
                 <h5>Encontre imóveis</h5>
                 <p>
-                  Procure por imóveis perto de você, filtre resultados por bairro, cidade, preço. Com poucos cliques você tem acesso ao proprietário de um imóvel, depois só agendar sua visita. 
+                  Procure por imóveis perto de você, filtre resultados por bairro, cidade, preço. Com poucos cliques você tem acesso ao proprietário de um imóvel, depois só agendar sua visita.
       </p>
 
               </Media.Body>
