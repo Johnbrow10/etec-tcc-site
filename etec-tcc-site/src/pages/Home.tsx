@@ -46,10 +46,11 @@ function Home() {
           <Col sm={7}>
             <h1>Iluguel</h1>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero beatae illo aliquid iure delectus sint non reprehenderit molestias optio porro fuga harum ab, mollitia at saepe fugiat repellendus nulla? Libero?
+            O i-luguel usa tecnologia para tornar a experiência de alugar um imóvel mais simples e agradável,
+tanto para quem procura um lar quanto para quem anuncia com a gente.
           </p>
             <p>
-              <Button className="btn-header">Learn more</Button>
+              <Button className="btn-header">Explorar</Button>
             </p>
           </Col>
         </Row>
@@ -57,7 +58,7 @@ function Home() {
 
       <div className="container-cta1">
         <h1 className="cta1-title">Baixe agora mesmo!</h1>
-        <p className="cta1-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore assumenda qui ex repellendus voluptas ad dicta quod commodi similique nesciunt tenetur necessitatibus minus quia, delectus harum sequi ratione deserunt neque.</p>
+        <p className="cta1-text">E encontre os imóveis que estão perto de você</p>
         <img src={imgPlayStore} className="btn-playstore" />
       </div>
 
@@ -72,12 +73,9 @@ function Home() {
                 alt="Generic placeholder"
               />
               <Media.Body>
-                <h5>Media Heading</h5>
+                <h5>Cadastre seu imóvel</h5>
                 <p>
-                  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
-                  ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at,
-                  tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
-                  fringilla. Donec lacinia congue felis in faucibus.
+                  Está com dificuldade de alugar seu imóvel? cadastre=se no i-luguel! com um atendimento bem humanizado e sem formulários, você consegue ficar visível no buscador, tudo isso sem pagar nada.
       </p>
 
               </Media.Body>
@@ -91,12 +89,9 @@ function Home() {
                 alt="Generic placeholder"
               />
               <Media.Body>
-                <h5>Media Heading</h5>
+                <h5>Encontre imóveis</h5>
                 <p>
-                  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
-                  ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at,
-                  tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
-                  fringilla. Donec lacinia congue felis in faucibus.
+                  Procure por imóveis perto de você, filtre resultados por bairro, cidade, preço. Com poucos cliques você tem acesso ao proprietário de um imóvel, depois só agendar sua visita. 
       </p>
 
               </Media.Body>
@@ -107,12 +102,12 @@ function Home() {
 
       <div className="container-cta2">
         <h1 className="cta2-title">Baixe agora mesmo!</h1>
-        <p className="cta2-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore assumenda qui ex repellendus voluptas ad dicta quod commodi similique nesciunt tenetur necessitatibus minus quia, delectus harum sequi ratione deserunt neque.</p>
+        <p className="cta2-text">E encontre diversar opções de imóveis, de todos os tipos e tamanhos, filtre resultados e fale direto com o proprietário</p>
 
       </div>
 
       <div className="footer">
-        <p className="cta1-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore assumenda qui ex repellendus voluptas ad dicta quod commodi similique nesciunt tenetur necessitatibus minus quia, delectus harum sequi ratione deserunt neque.</p>
+        <p className="cta1-text">i-luguel 2020. Todos direitos reservados</p>
       </div>
 
     </>
