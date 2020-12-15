@@ -89,8 +89,8 @@ export default function Imovel(props: any) {
                         <Nav.Link>
                             <Link className="botao" to="/list">Listar em Cards</Link>
                         </Nav.Link>
-                        <Nav.Link className="botao"  href="https://api.whatsapp.com/send?phone=5511972014007&text=Ol%C3%A1%2C%20gostaria%20de%20cadastrar%20meu%20im%C3%B3vel%20no%20i-luguel.">
-                          Cadastrar imóvel
+                        <Nav.Link className="botao" href="https://api.whatsapp.com/send?phone=5511972014007&text=Ol%C3%A1%2C%20gostaria%20de%20cadastrar%20meu%20im%C3%B3vel%20no%20i-luguel.">
+                            Cadastrar imóvel
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
@@ -133,10 +133,10 @@ export default function Imovel(props: any) {
                                 <h1 className="nome-proprietario"> Imóvel alugado por {data.full_name} </h1>
                                 <div className="comodos-icons">
 
-                                    <p className="font-icons"> <FaCouch/> {data.room} </p>
-                                    <p className="font-icons"> <GiBed/>  {data.bedroom} </p>
-                                    <p className="font-icons"> <FaToilet/> {data.bathroom}</p>
-                                    <p className="font-icons"> <GiKnifeFork/> {data.kitchen} </p>
+                                    <p className="font-icons"> <FaCouch /> {data.room} </p>
+                                    <p className="font-icons"> <GiBed />  {data.bedroom} </p>
+                                    <p className="font-icons"> <FaToilet /> {data.bathroom}</p>
+                                    <p className="font-icons"> <GiKnifeFork /> {data.kitchen} </p>
 
                                     {data.garage >= 1 ? (
                                         <p className="font-icons"> <GiHomeGarage></GiHomeGarage> {data.garage} </p>
@@ -170,7 +170,7 @@ export default function Imovel(props: any) {
                                         ) : (
                                                 <p className="preco-p">A casa não precisa de contrato assinado para ser alugada</p>
                                             )}
-
+                                        <p className="preco-p"> Numero de contato: <strong> {data.whatsapp}</strong></p>
                                     </div>
 
                                     <div className="regras-casa">
